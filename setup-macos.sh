@@ -151,7 +151,8 @@ function install_packages() {
             cmake ninja dfu-util ccache clang-format \
             android-platform-tools \
             7zip \
-            nats-io/nats-tools/nats
+            nats-io/nats-tools/nats \
+            kitty 
         brew services start syncthing
         echo "Syncthing started, connect it to everything by opening 127.0.0.1:8384 in a browser"
         # Rosetta is usually required
