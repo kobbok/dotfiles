@@ -152,7 +152,9 @@ function install_packages() {
             android-platform-tools \
             7zip \
             nats-io/nats-tools/nats \
-            kitty 
+            kitty \
+            fd ripgrep ast-grep \
+            font-fira-code-nerd-font
         brew services start syncthing
         echo "Syncthing started, connect it to everything by opening 127.0.0.1:8384 in a browser"
         # Rosetta is usually required
