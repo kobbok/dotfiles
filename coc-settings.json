@@ -1,4 +1,0 @@
-{
-  "coc.preferences.formatOnSave": true,
-  "clangd.arguments": ["--log=verbose"]
-}
