@@ -143,13 +143,15 @@ function install_homebrew() {
 function install_packages() {
 	# Optionally install oh-my-zsh
 	#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        brew tap nats-io/nats-tools
 	brew install -q firefox neovim discord obsidian thunderbird syncthing \
             bruno inkscape \
             python3 node lazygit jq nmap websocat \
             colima docker docker-compose \
             cmake ninja dfu-util ccache clang-format \
             android-platform-tools \
-            7zip
+            7zip \
+            nats-io/nats-tools/nats
         brew services start syncthing
         echo "Syncthing started, connect it to everything by opening 127.0.0.1:8384 in a browser"
         # Rosetta is usually required
