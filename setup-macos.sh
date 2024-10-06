@@ -76,6 +76,10 @@ function update_preferences() {
         defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
         defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
 
+        # Hidden
+        defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+        defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
 	for app in "Dock" "Finder"; do
 		killall "${app}" > /dev/null 2>&1
 	done
