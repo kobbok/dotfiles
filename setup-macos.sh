@@ -159,6 +159,8 @@ function install_packages() {
     fd ripgrep ast-grep \
     font-fira-code-nerd-font \
     rust
+  # Insanely good quick look (right click on file and select Quick Look) tool for checking IPAs (shows entitlements and more): https://github.com/ealeksandrov/ProvisionQL
+  brew install -q --cask provisionql
   brew services start syncthing
   echo "Syncthing started, connect it to everything by opening 127.0.0.1:8384 in a browser"
   # Rosetta is usually required
