@@ -158,7 +158,7 @@ function install_packages() {
     kitty \
     fd ripgrep ast-grep \
     font-fira-code-nerd-font \
-    rust
+    rust fzf
   # Insanely good quick look (right click on file and select Quick Look) tool for checking IPAs (shows entitlements and more): https://github.com/ealeksandrov/ProvisionQL
   brew install -q --cask provisionql
   brew services start syncthing
