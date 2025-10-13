@@ -103,9 +103,26 @@ source $ZSH/oh-my-zsh.sh
 # Aliases, custom prompts, appearance and behaviour of terminal go here
 # Recursively remove .DS_Store files
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
-alias get_idf='. $HOME/esp/esp-idf/export.sh'
 alias fix_windows_permissions="find . -type f -exec chmod 644 {} \; && find . -type d -exec chmod 755 {} \;"
 eval "$(rbenv init - zsh)"
 
 export PATH="$(yarn global bin):$PATH"
 source <(fzf --zsh)
+
+ESP_IDF_HOME=$HOME/esp/esp-idf
+
+function _complete_change_idf_version_completions() {
+  local refs
+  refs=$(git --git-dir=$ESP_IDF_HOME/.git for-each-ref --format='%(refname:short)' refs/heads refs/remotes refs/tags)
+  COMPREPLY=( $(compgen -W "$refs" -- "$cur") )
+}
+
+function change_idf_version() {
+  readonly version=${1:?"You must specify the version"}
+
+  echo "Provided argument is: $version"
+  pushd $ESP_IDF_HOME && git checkout --recurse-submodules $version && ./install.sh esp32s3,esp32c3,esp32c6; popd
+}
+
+complete -F _complete_change_idf_version_completions change_idf_version
+alias get_idf='. $ESP_IDF_HOME/export.sh'
